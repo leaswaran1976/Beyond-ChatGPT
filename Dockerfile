@@ -6,6 +6,6 @@ ENV HOME=/home/user \
 WORKDIR $HOME/app
 COPY --chown=user . $HOME/app
 COPY ./requirements.txt ~/app/requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt --use-deprecated=legacy-resolver
 COPY . .
 CMD ["chainlit", "run", "app.py", "--port", "7860"]
